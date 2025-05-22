@@ -1,6 +1,6 @@
 {
   "name": "@aicadev/toast-message",
-  "version": "1.0.2",
+  "version": "1.0.1",
   "type": "module",
   "description": "🔔 Lightweight and framework-agnostic Web Component for toast notifications",
   "main": "dist/toast-message.js",

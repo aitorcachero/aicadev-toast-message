@@ -1,6 +1,6 @@
 {
   "name": "@aicadev/toast-message",
-  "version": "1.0.2",
+  "version": "1.0.1",
   "type": "module",
   "description": "🔔 Lightweight and framework-agnostic Web Component for toast notifications",
   "main": "dist/toast-message.js",
@@ -37,7 +37,7 @@
   "bugs": {
     "url": "https://github.com/aicadev/toast-message/issues"
   },
-  "homepage": "https://aitorcachero.github.io/aicadev-toast-message/",
+  "homepage": "https://github.com/aicadev/toast-message#readme",
   "devDependencies": {
     "vite": "^6.3.5"
   }
