@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>Toast Message Demo</title>
+  <style>
+    body {
+      font-family: system-ui, -apple-system, sans-serif;
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 2rem;
+    }
+
+    .button-group {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+      margin: 2rem 0;
+    }
+
+    button {
+      padding: 0.75rem 1.5rem;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      font-weight: 500;
+      transition: all 0.2s;
+    }
+
+    button:hover {
+      transform: translateY(-2px);
+    }
+
+    .success { background: #4caf50; color: white; }
+    .error { background: #f44336; color: white; }
+    .warning { background: #ff9800; color: white; }
+    .info { background: #2196f3; color: white; }
+  </style>
+</head>
+
+<body>
+  <h1>Demo de Toast Message</h1>
+  
+  <div class="button-group">
+    <button class="success" onclick="showToast('¡Operación completada con éxito!', 'success', 3000, 'top-right', true)">
+      Mostrar Éxito
+    </button>
+    
+    <button class="error" onclick="showToast('Ha ocurrido un error', 'error', 4000, 'top-right', true)">
+      Mostrar Error
+    </button>
+    
+    <button class="warning" onclick="showToast('Advertencia: Acción pendiente', 'warning', 3000, 'top-center', true)">
+      Mostrar Aviso
+    </button>
+    
+    <button class="info" onclick="showToast('Información importante', 'info', 3000, 'bottom-right', true)">
+      Mostrar Info
+    </button>
+  </div>
+
+  <div class="button-group">
+    <button onclick="showToast('Toast en la parte superior', 'info', 3000, 'top-center')">
+      Top Center
+    </button>
+    
+    <button onclick="showToast('Toast en la parte inferior', 'info', 3000, 'bottom-center')">
+      Bottom Center
+    </button>
+    
+    <button onclick="showToast('<strong>HTML</strong> está permitido!', 'success', 3000, 'top-right', true)">
+      Toast con HTML
+    </button>
+  </div>
+
+  <script type="module">
+    import './src/toast-message.js';
+
+    window.showToast = function(message, type = 'info', duration = 3000, position = 'top-right', closeable = false) {
+      const toast = document.createElement('toast-message');
+      toast.innerHTML = message;
+      toast.setAttribute('type', type);
+      toast.setAttribute('duration', duration);
+      toast.setAttribute('position', position);
+      if (closeable) {
+        toast.setAttribute('closeable', '');
+      }
+      document.body.appendChild(toast);
+    };
+  </script>
+</body>
+</html>

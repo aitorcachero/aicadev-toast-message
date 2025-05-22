@@ -1,0 +1,164 @@
+# @aicadev/toast-message
+
+> 🔔 Lightweight and framework-agnostic Web Component for toast notifications.
+
+This package provides a simple, customizable `<toast-message>` Web Component that works with any frontend stack (Vanilla JS, React, Vue, Astro, etc.).
+
+---
+
+## ✨ Features
+
+- ✅ **No dependencies**
+- ✅ **Highly customizable** with multiple attributes
+- ✅ **Works with any framework** (or none)
+- ✅ **Lightweight and fast**
+- ✅ **Easy to style or extend**
+- ✅ **Built with Web Standards**
+- ✅ **HTML support in messages**
+- ✅ **Flexible positioning**
+- ✅ **Accessible**
+- ✅ **Smooth animations**
+
+---
+
+## 🚀 Installation
+
+```bash
+npm install @aicadev/toast-message
+```
+
+---
+
+## 🧪 Basic Usage
+
+Import the component in your project:
+
+```js
+import '@aicadev/toast-message';
+```
+
+Then use it like this:
+
+```js
+// Create and show a toast
+function showToast(
+  message,
+  type = 'info',
+  duration = 3000,
+  position = 'top-right',
+  closeable = false
+) {
+  const toast = document.createElement('toast-message');
+  toast.innerHTML = message;
+  toast.setAttribute('type', type);
+  toast.setAttribute('duration', duration);
+  toast.setAttribute('position', position);
+  if (closeable) {
+    toast.setAttribute('closeable', '');
+  }
+  document.body.appendChild(toast);
+}
+
+// Usage examples
+showToast('Operation successful!', 'success');
+showToast(
+  '<strong>Error:</strong> Something went wrong',
+  'error',
+  5000,
+  'bottom-center',
+  true
+);
+```
+
+---
+
+## 🛠 Attributes
+
+| Attribute   | Type    | Default     | Description                                                    |
+| ----------- | ------- | ----------- | -------------------------------------------------------------- |
+| `type`      | string  | `info`      | Defines the toast style: `info`, `success`, `error`, `warning` |
+| `duration`  | number  | `3000`      | Time in milliseconds before toast disappears                   |
+| `position`  | string  | `top-right` | Position of the toast on the screen                            |
+| `closeable` | boolean | false       | Shows a button to manually close the toast                     |
+
+Available Positions
+
+- top-right
+- top-left
+- top-center
+- bottom-right
+- bottom-left
+- bottom-center
+
+---
+
+## 📦 Build & Development (for contributors)
+
+```bash
+git clone https://github.com/your-username/toast-message.git
+cd toast-message
+npm install
+npm run dev        # Start dev server
+npm run build      # Output build to /dist
+```
+
+Built using [Vite](https://vitejs.dev/). Output is bundled as an ES Module ready for direct use.
+
+---
+
+## 📤 Publishing
+
+If you're the package maintainer:
+
+```bash
+npm login
+npm run build
+npm publish --access public
+```
+
+---
+
+## 🔧 Example in React (or other frameworks)
+
+```jsx
+import '@aicadev/toast-message';
+
+function App() {
+  const handleClick = () => {
+    const toast = document.createElement('toast-message');
+    toast.innerHTML = '<strong>React</strong> triggered this!';
+    toast.setAttribute('type', 'success');
+    toast.setAttribute('duration', '4000');
+    toast.setAttribute('position', 'top-center');
+    toast.setAttribute('closeable', '');
+    document.body.appendChild(toast);
+  };
+
+  return <button onClick={handleClick}>Show Toast</button>;
+}
+```
+
+---
+
+## 🎨 ## Customization
+
+The component is encapsulated with Shadow DOM, but you can fork or extend the component easily to change:
+
+- Animations
+- Colors
+- Icons
+- Styles
+- Positions
+- Behavior
+
+---
+
+## 🪪 License
+
+MIT License — Copyright © 2025 [@aicadev](https://www.npmjs.com/~aicadev)
+
+---
+
+## 💬 Support / Feedback
+
+If you find any bugs or want improvements, feel free to [open an issue](https://github.com/your-username/toast-message/issues) or contribute via pull request.

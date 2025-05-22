@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <title>Toast Message Demo</title>
+</head>
+
+<body>
+  <h1>Toast Web Component Demo</h1>
+  <button onclick="showToast('Mensaje de éxito', 'success')">Mostrar éxito</button>
+  <button onclick="showToast('Algo salió mal', 'error')">Mostrar error</button>
+  <button onclick="showToast('Hay un aviso', 'warning')">Mostrar aviso</button>
+  <button onclick="showToast('Esto es información', 'info')">Mostrar info</button>
+
+  <div id="toast-container" style="position: fixed; top: 1rem; right: 1rem; z-index: 9999;"></div>
+
+  <script type="module">
+    import './src/toast-message.js';
+
+    function showToast(message, type = 'info', duration = 3000) {
+      const toast = document.createElement('toast-message');
+      toast.textContent = message;
+      toast.setAttribute('type', type);
+      toast.setAttribute('duration', duration);
+      document.getElementById('toast-container').appendChild(toast);
+    }
+
+    window.showToast = showToast;
+  </script>
+</body>
+
+</html>
