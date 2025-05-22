@@ -39,9 +39,8 @@ export class ToastMessage extends HTMLElement {
     } else if (position.includes('right')) {
       this.style.right = '20px';
     } else {
-      // Centrado correcto para posiciones center
       this.style.left = '50%';
-      this.style.transform = position.includes('center') ? 'translate(-50%, 0)' : 'translateX(-50%)';
+      this.style.transform = 'translateX(-50%)';
     }
 
     // Añadir al array
@@ -88,11 +87,7 @@ export class ToastMessage extends HTMLElement {
 
       .toast.fade-out {
         opacity: 0;
-        transform: ${
-          position.includes('center') 
-            ? 'translate(-50%, 20px)' 
-            : `translateX(${position.includes('right') ? '100%' : '-100%'})`
-        };
+        transform: ${position.includes('center') ? 'translateY(20px)' : `translateX(${position.includes('right') ? '100%' : '-100%'})`};
       }
 
       .toast:hover {
@@ -136,11 +131,11 @@ export class ToastMessage extends HTMLElement {
       @keyframes fadeInCenter {
         from {
           opacity: 0;
-          transform: translate(-50%, -20px);
+          transform: translateY(-20px);
         }
         to {
           opacity: 1;
-          transform: translate(-50%, 0);
+          transform: translateY(0);
         }
       }
     `;
