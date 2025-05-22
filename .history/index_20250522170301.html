@@ -81,40 +81,35 @@
     </button>
   </div>
 
-  <div class="button-group" style="color: aliceblue;">
-    <input type="radio" id="top-left" name="position" value="top-left">
+  <div class="button-group">
+    <input type="radio" id="top-left" name="position" value="top-left" checked>
     <label for="top-left">Top Left</label>
-    <input type="radio" id="top-center" name="position" value="top-center">
-    <label for="top-center">Top Center</label>
     <input type="radio" id="top-right" name="position" value="top-right">
     <label for="top-right">Top Right</label>
     <input type="radio" id="bottom-left" name="position" value="bottom-left">
     <label for="bottom-left">Bottom Left</label>
-    <input type="radio" id="bottom-center" name="position" value="bottom-center">
-    <label for="bottom-center">Bottom Center</label>
-    <input type="radio" id="bottom-right" name="position" value="bottom-right" checked>
+    <input type="radio" id="bottom-right" name="position" value="bottom-right">
     <label for="bottom-right">Bottom Right</label>
   </div>
-
+  <div class="button-group">
+    <input type="checkbox" id="closeable" name="closeable">
+  </div>
 
   <script type="module">
     import './src/toast-message.js';
 
     window.showToast = function (message, type = 'info', duration = 3000, position = 'top-right', closeable = false) {
-      // Obtener la posición seleccionada del radio button
-      const selectedPosition = document.querySelector('input[name="position"]:checked').value;
-      
       const toast = document.createElement('toast-message');
       toast.innerHTML = message;
       toast.setAttribute('type', type);
       toast.setAttribute('duration', duration);
-      toast.setAttribute('position', selectedPosition); // Usar la posición seleccionada
+      toast.setAttribute('position', position);
       if (closeable) {
         toast.setAttribute('closeable', '');
       }
       document.body.appendChild(toast);
     };
-</script>
+  </script>
 </body>
 
 </html>

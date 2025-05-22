@@ -101,20 +101,17 @@
     import './src/toast-message.js';
 
     window.showToast = function (message, type = 'info', duration = 3000, position = 'top-right', closeable = false) {
-      // Obtener la posición seleccionada del radio button
-      const selectedPosition = document.querySelector('input[name="position"]:checked').value;
-      
       const toast = document.createElement('toast-message');
       toast.innerHTML = message;
       toast.setAttribute('type', type);
       toast.setAttribute('duration', duration);
-      toast.setAttribute('position', selectedPosition); // Usar la posición seleccionada
+      toast.setAttribute('position', position);
       if (closeable) {
         toast.setAttribute('closeable', '');
       }
       document.body.appendChild(toast);
     };
-</script>
+  </script>
 </body>
 
 </html>
